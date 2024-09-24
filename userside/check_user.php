@@ -14,12 +14,8 @@ if ($user_id) {
         session_unset();
         session_destroy();
 
-        echo "<script>
-            alert('User does not exist. Logging out...');
-            setTimeout(function() {
-                window.location.href = 'login.php';
-            }, 2000);
-        </script>";
+        // Redirect to login.php without an alert
+        header('Location: login.php');
         exit;
     }
 } else {
@@ -27,12 +23,8 @@ if ($user_id) {
     session_unset();
     session_destroy();
 
-    echo "<script>
-        alert('Session expired. Logging out...');
-        setTimeout(function() {
-            window.location.href = 'login.php';
-        }, 2000);
-    </script>";
+    // Redirect to login.php without an alert
+    header('Location: login.php');
     exit;
 }
 ?>
